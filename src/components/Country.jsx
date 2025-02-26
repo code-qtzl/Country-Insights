@@ -27,12 +27,17 @@ export const Country = ({ country }) => {
 	}, [country.latlng]);
 
 	return (
-		<>
-			<h2>{country.name.common}</h2>
-			<p>capital {country.capital}</p>
-			<p>area {country.area}</p>
-			<h3>languages:</h3>
-			<ul>
+		<div className='bg-white rounded-lg shadow-md p-6'>
+			<h2 className='text-2xl font-bold mb-4'>{country.name.common}</h2>
+			<p className='mb-2'>
+				<span className='font-semibold'>Capital:</span>{' '}
+				{country.capital}
+			</p>
+			<p className='mb-2'>
+				<span className='font-semibold'>Area:</span> {country.area} km²
+			</p>
+			<h3 className='text-lg font-semibold mt-4 mb-2'>Languages:</h3>
+			<ul className='list-disc list-inside mb-4'>
 				{Object.values(country.languages).map((language, i) => (
 					<li key={i}>{language}</li>
 				))}
@@ -40,21 +45,33 @@ export const Country = ({ country }) => {
 			<img
 				src={country.flags.png}
 				alt={`Flag of ${country.name.common}`}
-				width='150'
+				className='w-48 h-auto mb-4 rounded'
 			/>
 			{weather && (
-				<>
-					<h3>Weather in {country.capital}</h3>
-					<p>
-						<strong>temperature:</strong> {weather.main.temp}{' '}
-						Celsius
+				<div className='mt-4'>
+					<h3 className='text-lg font-semibold mb-2'>
+						Weather in {country.capital}
+					</h3>
+					<p className='mb-2'>
+						<span className='font-semibold'>Temperature:</span>{' '}
+						{weather.main.temp} °C
 					</p>
-					<img src={icon} alt='Weather icon' width='100' />
-					<p>
-						<strong>wind:</strong> {weather.wind.speed} m/s
+					<div className='flex items-center mb-2'>
+						<img
+							src={icon}
+							alt='Weather icon'
+							className='w-12 h-12 mr-2'
+						/>
+						<p className='font-semibold'>
+							{weather.weather[0].description}
+						</p>
+					</div>
+					<p className='mb-2'>
+						<span className='font-semibold'>Wind:</span>{' '}
+						{weather.wind.speed} m/s
 					</p>
-				</>
+				</div>
 			)}
-		</>
+		</div>
 	);
 };

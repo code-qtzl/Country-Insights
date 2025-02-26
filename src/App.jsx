@@ -41,9 +41,12 @@ const App = () => {
 	};
 
 	return (
-		<>
+		<div className='container mx-auto p-4'>
+			<h1 className='text-2xl font-bold mb-4 text-gray-800'>
+				Country Insights
+			</h1>
 			<Search
-				text={'filter shown with:'}
+				text={'Filter countries:'}
 				value={searchFilter}
 				onChange={handleSearchFilter}
 			/>
@@ -51,8 +54,14 @@ const App = () => {
 				<Country country={countriesFiltered[0]} />
 			) : (
 				<>
-					{countriesFiltered.length > 10 ? (
-						<p>Too many matches, specify another filter</p>
+					{searchFilter && countriesFiltered.length > 10 ? (
+						<p className='text-red-500'>
+							Too many matches, specify another filter
+						</p>
+					) : !searchFilter ? (
+						<p className='text-gray-500'>
+							Start typing to search for a country
+						</p>
 					) : (
 						<Countries
 							countriesFiltered={countriesFiltered}
@@ -61,7 +70,7 @@ const App = () => {
 					)}
 				</>
 			)}
-		</>
+		</div>
 	);
 };
 
