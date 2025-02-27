@@ -7,10 +7,12 @@ export const Country = ({ country }) => {
 	const [icon, setIcon] = useState('');
 
 	useEffect(() => {
-		const API_KEY = import.meta.env.VITE_SOME_KEY;
+		const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 		const lat = country.latlng[0];
 		const lng = country.latlng[1];
 		const baseUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}`;
+
+		console.log('Fetching weather data...', baseUrl);
 
 		axios
 			.get(baseUrl)
@@ -25,6 +27,14 @@ export const Country = ({ country }) => {
 				console.error('Error fetching weather:', error);
 			});
 	}, [country.latlng]);
+
+	const kelvinToCelsius = (kelvin) => {
+		return (kelvin - 273.15).toFixed(1);
+	};
+
+	const kelvinToFahrenheit = (kelvin) => {
+		return (((kelvin - 273.15) * 9) / 5 + 32).toFixed(1);
+	};
 
 	return (
 		<div className='bg-white rounded-lg shadow-md p-6'>
@@ -54,7 +64,9 @@ export const Country = ({ country }) => {
 					</h3>
 					<p className='mb-2'>
 						<span className='font-semibold'>Temperature:</span>{' '}
-						{weather.main.temp} °C
+						{/* {weather.main.temp} °C */}
+						{kelvinToCelsius(weather.main.temp)}°C /{' '}
+						{kelvinToFahrenheit(weather.main.temp)}°F
 					</p>
 					<div className='flex items-center mb-2'>
 						<img
@@ -69,6 +81,10 @@ export const Country = ({ country }) => {
 					<p className='mb-2'>
 						<span className='font-semibold'>Wind:</span>{' '}
 						{weather.wind.speed} m/s
+					</p>
+					<p className='mb-2'>
+						<span className='font-semibold'>Humidity:</span>{' '}
+						{weather.main.humidity} %
 					</p>
 				</div>
 			)}
