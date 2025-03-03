@@ -8,8 +8,11 @@ import { Countries } from './components/Countries';
 const App = () => {
 	const [searchFilter, setSearchFilter] = useState('');
 	const [countries, setCountries] = useState([]);
-	const [darkMode, setDarkMode] = useState(false);
 	const baseUrl = 'https://studies.cs.helsinki.fi/restcountries/api/all';
+	const [darkMode, setDarkMode] = useState(() => {
+		const storedDarkMode = localStorage.getItem('darkMode');
+		return storedDarkMode === 'true' || false;
+	});
 
 	useEffect(() => {
 		localStorage.setItem('darkMode', darkMode);
@@ -82,7 +85,7 @@ const App = () => {
 							Too many matches, specify another filter
 						</p>
 					) : !searchFilter ? (
-						<p className='text-gray-500'>
+						<p className='text-gray-500 dark:text-gray-400'>
 							Start typing to search for a country
 						</p>
 					) : (

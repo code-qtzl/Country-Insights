@@ -37,7 +37,7 @@ export const Country = ({ country }) => {
 	};
 
 	return (
-		<div className='bg-white rounded-lg shadow-md p-6'>
+		<div className='bg-white rounded-lg shadow-md p-6 dark:bg-gray-900 dark:text-white'>
 			<h2 className='text-2xl font-bold mb-4'>{country.name.common}</h2>
 			<p className='mb-2'>
 				<span className='font-semibold'>Capital:</span>{' '}

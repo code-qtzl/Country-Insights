@@ -5,7 +5,7 @@ export const Countries = ({ countriesFiltered, handleShow }) => {
 			{countriesFiltered.map((country) => (
 				<li
 					key={country.ccn3}
-					className='flex items-center justify-between p-2 border rounded shadow-sm hover:bg-gray-50 transition-colors'
+					className='flex items-center justify-between p-2 border rounded shadow-sm hover:bg-gray-50 transition-colors dark:text-gray-200 dark:bg-gray-800'
 				>
 					<span>{country.name.common}</span>
 					<button
