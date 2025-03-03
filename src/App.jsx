@@ -8,7 +8,18 @@ import { Countries } from './components/Countries';
 const App = () => {
 	const [searchFilter, setSearchFilter] = useState('');
 	const [countries, setCountries] = useState([]);
+	const [darkMode, setDarkMode] = useState(false);
 	const baseUrl = 'https://studies.cs.helsinki.fi/restcountries/api/all';
+
+	useEffect(() => {
+		localStorage.setItem('darkMode', darkMode);
+
+		if (darkMode) {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
+	}, [darkMode]);
 
 	useEffect(() => {
 		axios
@@ -40,11 +51,23 @@ const App = () => {
 		}
 	};
 
+	const toggleDarkMode = () => {
+		setDarkMode(!darkMode);
+	};
+
 	return (
-		<div className='container mx-auto p-4'>
-			<h1 className='text-2xl font-bold mb-4 text-gray-800'>
-				Country Insights
-			</h1>
+		<div className='container mx-auto p-4 dark:bg-gray-900 dark:text-white'>
+			<div className='flex justify-between items-center mb-4'>
+				<h1 className='text-2xl font-bold text-gray-800 dark:text-white'>
+					Country Insights
+				</h1>
+				<button
+					onClick={toggleDarkMode}
+					className='bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+				>
+					{darkMode ? 'Light Mode' : 'Dark Mode'}
+				</button>
+			</div>
 			<Search
 				text={'Filter countries:'}
 				value={searchFilter}
