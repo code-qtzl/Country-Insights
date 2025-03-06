@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
+import { API_CONFIG } from './config/api';
 import { useCountries } from './hooks/useCountries';
 import { useDebounce } from './hooks/useDebounce';
 import { Country } from './types';
@@ -87,7 +88,7 @@ export default function App() {
 						<p>
 							Country data provided by{' '}
 							<a
-								href='https://restcountries.com'
+								href={API_CONFIG.COUNTRIES.BASE_URL}
 								target='_blank'
 								rel='noopener noreferrer'
 								className='text-blue-500 hover:underline'
@@ -98,7 +99,7 @@ export default function App() {
 						<p className='mt-1'>
 							Weather data provided by{' '}
 							<a
-								href='https://openweathermap.org'
+								href={API_CONFIG.WEATHER.BASE_URL}
 								target='_blank'
 								rel='noopener noreferrer'
 								className='text-blue-500 hover:underline'
