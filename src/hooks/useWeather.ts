@@ -68,5 +68,3 @@ export const useWeather = () => {
 		clearWeather,
 	};
 };
-
-// https://api.openweathermap.org/data/2.5/weather?q=${capital},${country}&appid=${API_KEY}&units=metric
