@@ -2,9 +2,6 @@ import { useState, useCallback } from 'react';
 import { API_CONFIG } from '../config/api';
 import { WeatherData } from '../types';
 
-// environment variable
-const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
-
 export const useWeather = () => {
 	const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
 	const [loading, setLoading] = useState(false);
@@ -43,7 +40,6 @@ export const useWeather = () => {
 			const url = API_CONFIG.WEATHER.getWeatherURL.byCoordinates(
 				lat,
 				lon,
-				API_KEY,
 			);
 			return fetchWeatherData(url);
 		},
@@ -55,7 +51,6 @@ export const useWeather = () => {
 			const url = API_CONFIG.WEATHER.getWeatherURL.byCity(
 				capital,
 				country,
-				API_KEY,
 			);
 			return fetchWeatherData(url);
 		},

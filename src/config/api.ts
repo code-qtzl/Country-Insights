@@ -7,15 +7,16 @@ export const API_CONFIG = {
 	},
 	WEATHER: {
 		BASE_URL: 'https://api.openweathermap.org/data/2.5',
+		API_KEY: import.meta.env.VITE_WEATHER_API_KEY,
 		ENDPOINTS: {
 			WEATHER: '/weather',
 		},
 		getWeatherURL: {
-			byCoordinates: (lat: number, lon: number, apiKey: string) => {
-				return `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+			byCoordinates: (lat: number, lon: number) => {
+				return `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_CONFIG.WEATHER.API_KEY}&units=metric`;
 			},
-			byCity: (city: string, country: string, apiKey: string) => {
-				return `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}&units=metric`;
+			byCity: (city: string, country: string) => {
+				return `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_CONFIG.WEATHER.API_KEY}&units=metric`;
 			},
 		},
 		getIconURL: (icon: string) => {
