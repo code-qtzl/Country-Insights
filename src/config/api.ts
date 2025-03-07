@@ -6,10 +6,17 @@ export const API_CONFIG = {
 		},
 	},
 	WEATHER: {
-		BASE_URL: 'https://api.openweathermap.org',
+		BASE_URL: 'https://api.openweathermap.org/data/2.5',
 		ENDPOINTS: {
-			WEATHER: '/data/2.5/weather',
-			ICON_URL: 'https://openweathermap.org/img/wn',
+			WEATHER: '/weather',
+		},
+		getWeatherURL: {
+			byCoordinates: (lat: number, lon: number, apiKey: string) => {
+				return `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+			},
+			byCity: (city: string, country: string, apiKey: string) => {
+				return `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}&units=metric`;
+			},
 		},
 		getIconURL: (icon: string) => {
 			return `https://openweathermap.org/img/wn/${icon}@2x.png`;

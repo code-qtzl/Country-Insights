@@ -40,7 +40,11 @@ export const useWeather = () => {
 
 	const fetchWeather = useCallback(
 		async (lat: number, lon: number) => {
-			const url = `${API_CONFIG.WEATHER.BASE_URL}${API_CONFIG.WEATHER.ENDPOINTS.WEATHER}?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
+			const url = API_CONFIG.WEATHER.getWeatherURL.byCoordinates(
+				lat,
+				lon,
+				API_KEY,
+			);
 			return fetchWeatherData(url);
 		},
 		[fetchWeatherData],
@@ -48,7 +52,11 @@ export const useWeather = () => {
 
 	const fetchWeatherByCapital = useCallback(
 		async (capital: string, country: string) => {
-			const url = `${API_CONFIG.WEATHER.BASE_URL}${API_CONFIG.WEATHER.ENDPOINTS.WEATHER}?q=${capital},${country}&appid=${API_KEY}&units=metric`;
+			const url = API_CONFIG.WEATHER.getWeatherURL.byCity(
+				capital,
+				country,
+				API_KEY,
+			);
 			return fetchWeatherData(url);
 		},
 		[fetchWeatherData],
