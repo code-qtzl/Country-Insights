@@ -73,8 +73,8 @@ export default function CountryDetails({
 			);
 		}
 
-		const tempCelsius = parseFloat(kelvinToCelsius(weatherData.main.temp));
-		const tempFahrenheit = parseFloat(celsiusToFahrenheit(tempCelsius));
+		const tempCelsius = weatherData.main.temp;
+		const tempFahrenheit = celsiusToFahrenheit(weatherData.main.temp);
 		const weatherIcon = weatherData.weather[0]?.icon;
 
 		return (
@@ -153,10 +153,10 @@ export default function CountryDetails({
 									Feels like
 								</p>
 								<p className='font-medium text-gray-900 dark:text-white'>
-									{kelvinToCelsius(
+									{celsiusToFahrenheit(
 										weatherData.main.feels_like,
 									)}
-									°C
+									°F
 								</p>
 							</div>
 						</div>
