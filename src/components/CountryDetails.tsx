@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { API_CONFIG } from '../config/api';
 import {
 	ArrowLeftIcon,
 	MapPinIcon,
@@ -86,7 +87,7 @@ export default function CountryDetails({
 					<div className='flex items-center gap-4'>
 						{weatherIcon && (
 							<img
-								src={`https://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
+								src={API_CONFIG.WEATHER.getIconURL(weatherIcon)}
 								alt={
 									weatherData.weather[0]?.description ||
 									'Weather icon'
@@ -309,7 +310,7 @@ export default function CountryDetails({
 								width='100%'
 								height='100%'
 								frameBorder='0'
-								src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${country.name.common}`}
+								src={`${API_CONFIG.GOOGLE_MAP.BASE_URL}?key=${API_CONFIG.GOOGLE_MAP.API_KEY}&q=${country.name.common}`}
 								allowFullScreen
 							></iframe>
 						</div>
