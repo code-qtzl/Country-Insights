@@ -8,7 +8,13 @@ export default function Header() {
 		<header className='bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-sm sticky top-0 z-50'>
 			<div className='container mx-auto px-4 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4'>
 				<div className='flex items-center'>
-					<GlobeAltIcon className='text-blue-500 dark:text-blue-400 mr-2 h-6 w-6' />
+					<GlobeAltIcon
+						className={`${
+							theme === 'light'
+								? 'text-orange-500 dark:text-orange-600 mr-2 h-6 w-6'
+								: 'text-blue-500 dark:text-blue-400 mr-2 h-6 w-6'
+						}`}
+					/>
 					<h1
 						className={`text-xl font-bold ${
 							theme === 'light'
@@ -33,9 +39,9 @@ export default function Header() {
 						}
 					>
 						{theme === 'dark' ? (
-							<SunIcon className='h-5 w-5' />
+							<SunIcon className='text-yellow-500 h-5 w-5' />
 						) : (
-							<MoonIcon className='h-5 w-5' />
+							<MoonIcon className='text-purple-600 h-5 w-5' />
 						)}
 					</button>
 				</div>

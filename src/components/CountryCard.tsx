@@ -12,14 +12,14 @@ export default function CountryCard({ country, onClick }: CountryCardProps) {
 
 	return (
 		<div
-			className='bg-stone-50 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg cursor-pointer'
+			className='bg-neutral-50 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer'
 			onClick={onClick}
 		>
 			<div className='relative h-40 overflow-hidden shadow-md'>
 				<img
 					src={country.flags.svg}
 					alt={country.flags.alt || `Flag of ${country.name.common}`}
-					className='w-full h-full object-cover transition-transform duration-300 hover:scale-110'
+					className='w-full h-full object-cover'
 				/>
 			</div>
 			<div className='p-5'>

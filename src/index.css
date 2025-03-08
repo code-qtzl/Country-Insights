@@ -11,12 +11,12 @@
 @layer components {
 	.search-gradient {
 		@apply relative;
-		background: linear-gradient(to top, #ff4500, #ffd700);
+		background: linear-gradient(to top right, #ff4500, #ffd700);
 	}
 
 	.dark .search-gradient {
 		background: linear-gradient(
-			to top,
+			to top right,
 			theme('colors.blue.600'),
 			theme('colors.purple.800')
 		);
@@ -35,7 +35,7 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-color: theme('colors.gray.50');
+		background-color: theme('colors.gray.100');
 		border-radius: 50% 50% 0 0;
 		transform: scaleX(1.4);
 	}

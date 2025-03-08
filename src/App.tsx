@@ -47,7 +47,7 @@ export default function App() {
 			<div className='min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-200'>
 				<Header />
 
-				<main className='w-full mx-auto'>
+				<main className={`w-full mx-auto bg-gray-100 dark:bg-gray-900`}>
 					{error && (
 						<div className='bg-red-50 dark:bg-red-900/20 p-4 rounded-lg mb-6'>
 							<p className='text-red-600 dark:text-red-400'>
@@ -68,6 +68,9 @@ export default function App() {
 								regions={regions}
 							/>
 							<div className='container mx-auto px-4 py-8'>
+								<h2 className='text-4xl font-bold text-center text-gray-700 dark:text-white mb-16'>
+									Countries
+								</h2>
 								<CountryGrid
 									countries={filteredCountries}
 									onCountrySelect={handleCountrySelect}
