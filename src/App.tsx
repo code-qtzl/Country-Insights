@@ -47,7 +47,7 @@ export default function App() {
 			<div className='min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-200'>
 				<Header />
 
-				<main className='container mx-auto px-4 py-8'>
+				<main className='w-full mx-auto'>
 					{error && (
 						<div className='bg-red-50 dark:bg-red-900/20 p-4 rounded-lg mb-6'>
 							<p className='text-red-600 dark:text-red-400'>
@@ -67,19 +67,23 @@ export default function App() {
 								onRegionFilter={setRegionFilter}
 								regions={regions}
 							/>
-							<CountryGrid
-								countries={filteredCountries}
-								onCountrySelect={handleCountrySelect}
-								loading={loading}
-							/>
+							<div className='container mx-auto px-4 py-8'>
+								<CountryGrid
+									countries={filteredCountries}
+									onCountrySelect={handleCountrySelect}
+									loading={loading}
+								/>
+							</div>
 						</>
 					)}
 
 					{selectedCountry && (
-						<CountryDetails
-							country={selectedCountry}
-							onBack={handleBackToList}
-						/>
+						<div className='container mx-auto px-4 py-8'>
+							<CountryDetails
+								country={selectedCountry}
+								onBack={handleBackToList}
+							/>
+						</div>
 					)}
 				</main>
 
