@@ -67,7 +67,7 @@ export default function App() {
 								onRegionFilter={setRegionFilter}
 								regions={regions}
 							/>
-							<div className='container mx-auto px-4 py-8'>
+							<div className='container relative mx-auto -mt-40 px-4 py-8'>
 								<h2 className='text-4xl font-bold text-center text-gray-700 dark:text-white mb-16'>
 									Countries
 								</h2>
@@ -81,7 +81,7 @@ export default function App() {
 					)}
 
 					{selectedCountry && (
-						<div className='container mx-auto px-4 py-8'>
+						<div className=''>
 							<CountryDetails
 								country={selectedCountry}
 								onBack={handleBackToList}

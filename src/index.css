@@ -24,7 +24,7 @@
 
 	.arch-separator {
 		position: relative;
-		height: 8rem;
+		height: 12rem;
 		overflow: hidden;
 	}
 
@@ -54,13 +54,13 @@
 
 	.search-input {
 		@apply w-full px-6 py-4 text-lg bg-white/90 dark:bg-gray-800/90 rounded-xl shadow-lg 
-           focus:outline-none focus:ring-2 focus:ring-orange-500 dark:focus:ring-orange-400
-           border-0 transition-shadow duration-200 ease-in-out backdrop-blur-sm;
+          focus:outline-none focus:ring-2 focus:ring-purple-600 dark:focus:ring-orange-400
+          border-0 transition-shadow duration-200 ease-in-out backdrop-blur-sm;
 	}
 
 	.search-icon {
 		@apply absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 
-           dark:text-gray-500 pointer-events-none;
+          dark:text-gray-500 pointer-events-none;
 	}
 }
 
