@@ -9,12 +9,18 @@
 }
 
 @layer components {
-	.search-gradient {
+	.search-gradient,
+	.search-gradient-two {
 		@apply relative;
 		background: linear-gradient(to top right, #ff4500, #ffd700);
 	}
 
-	.dark .search-gradient {
+	.search-gradient-two {
+		@apply relative min-h-screen;
+	}
+
+	.dark .search-gradient,
+	.dark .search-gradient-two {
 		background: linear-gradient(
 			to top right,
 			theme('colors.blue.600'),
@@ -27,8 +33,16 @@
 		height: 12rem;
 		overflow: hidden;
 	}
+	.arch-separator-two {
+		position: absolute;
+		height: 100%; /* Changed from 12rem to 100% */
+		width: 100%;
+		overflow: hidden;
+		pointer-events: none;
+	}
 
-	.arch-separator::after {
+	.arch-separator::after,
+	.arch-separator-two::after {
 		content: '';
 		position: absolute;
 		bottom: 0;
@@ -40,7 +54,13 @@
 		transform: scaleX(1.4);
 	}
 
-	.dark .arch-separator::after {
+	.arch-separator-two::after {
+		height: 57%;
+		transform: scaleX(1.8);
+	}
+
+	.dark .arch-separator::after,
+	.dark .arch-separator-two::after {
 		background-color: theme('colors.gray.900');
 	}
 
