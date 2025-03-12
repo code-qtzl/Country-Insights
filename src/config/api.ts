@@ -6,6 +6,7 @@ export const API_CONFIG = {
 		},
 	},
 	WEATHER: {
+		SITE_URL: 'https://openweathermap.org/api',
 		BASE_URL: 'https://api.openweathermap.org/data/2.5',
 		API_KEY: import.meta.env.VITE_WEATHER_API_KEY,
 		ENDPOINTS: {

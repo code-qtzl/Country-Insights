@@ -104,7 +104,7 @@ export default function App() {
 						<p className='mt-1'>
 							Weather data provided by{' '}
 							<a
-								href={API_CONFIG.WEATHER.BASE_URL}
+								href={API_CONFIG.WEATHER.SITE_URL}
 								target='_blank'
 								rel='noopener noreferrer'
 								className='text-blue-500 hover:underline'
