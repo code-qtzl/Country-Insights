@@ -81,16 +81,14 @@ export default function App() {
 					)}
 
 					{selectedCountry && (
-						<div className=''>
-							<CountryDetails
-								country={selectedCountry}
-								onBack={handleBackToList}
-							/>
-						</div>
+						<CountryDetails
+							country={selectedCountry}
+							onBack={handleBackToList}
+						/>
 					)}
 				</main>
 
-				<footer className='bg-white dark:bg-gray-800 py-6 mt-12'>
+				<footer className='bg-white dark:bg-gray-800 py-6 '>
 					<div className='container mx-auto px-4 text-center text-gray-600 dark:text-gray-400 text-sm'>
 						<p>
 							Country data provided by{' '}
