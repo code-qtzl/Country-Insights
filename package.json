@@ -1,6 +1,6 @@
 {
-	"name": "country-insights",
 	"homepage": "https://code-qtzl.github.io/Country-Insights",
+	"name": "country-insights",
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
@@ -10,7 +10,7 @@
 		"lint": "eslint .",
 		"preview": "vite preview",
 		"predeploy": "npm run build",
-		"deploy": "gh-pages -d dist"
+		"deploy": "gh-pages -d public"
 	},
 	"dependencies": {
 		"@heroicons/react": "^2.1.1",
