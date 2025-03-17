@@ -2,8 +2,8 @@
 
 ![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
-![Static Badge](https://img.shields.io/badge/Vite-%23646CFF?style=flat&logo=Vite&&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/Tailwind-%2306B6D4?style=flat&logo=Tailwind-CSS&logoColor=white)
+![Static Badge](https://img.shields.io/badge/Vite-%23646CFF?style=flat&logo=Vite&&logoColor=white)
 
 This web application displays information about countries, weather data information, and search capabilities, featuring a dark/light theme toggle.
 
