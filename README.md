@@ -11,6 +11,16 @@ This web application displays information about countries, weather data informat
 
 Experience Country-Insights here: [https://code-qtzl.github.io/Country-Insights/](https://code-qtzl.github.io/Country-Insights/)
 
+## 📸 Screenshots
+
+<div align="center">
+  <img src="screenshots/light-mode.png" alt="Light Mode" width="600"/>
+  <p><em>Dark Mode - Country Search and Information Display</em></p>
+  
+  <img src="screenshots/dark-mode.png" alt="Dark Mode" width="600"/>
+  <p><em>Light Mode - Weather Information and Details</em></p>
+</div>
+
 ## 🛠️ Installation
 
 1. Clone the repository:
