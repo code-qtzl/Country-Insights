@@ -1,6 +1,7 @@
 export const API_CONFIG = {
 	COUNTRIES: {
-		BASE_URL: 'https://restcountries.com/',
+		REST_COUNTRIES_URL: 'https://studies.cs.helsinki.fi/restcountries',
+		BASE_URL: 'https://studies.cs.helsinki.fi/restcountries',
 		ENDPOINTS: {
 			ALL: '/api/all',
 		},

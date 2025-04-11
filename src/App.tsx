@@ -93,7 +93,7 @@ export default function App() {
 						<p>
 							Country data provided by{' '}
 							<a
-								href={API_CONFIG.COUNTRIES.BASE_URL}
+								href={API_CONFIG.COUNTRIES.REST_COUNTRIES_URL}
 								target='_blank'
 								rel='noopener noreferrer'
 								className='text-blue-500 hover:underline'
