@@ -69,7 +69,7 @@ export default function App() {
 							/>
 							<div className='container relative mx-auto -mt-40 px-4 py-8'>
 								<h2 className='text-4xl font-bold text-center text-gray-700 dark:text-white mb-16'>
-									Countries
+									Explore Countries
 								</h2>
 								<CountryGrid
 									countries={filteredCountries}

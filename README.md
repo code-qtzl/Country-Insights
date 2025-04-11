@@ -5,7 +5,7 @@
 ![Tailwind](https://img.shields.io/badge/Tailwind-%2306B6D4?style=flat&logo=Tailwind-CSS&logoColor=white)
 ![Static Badge](https://img.shields.io/badge/Vite-%23646CFF?style=flat&logo=Vite&&logoColor=white)
 
-This web application displays information about countries, weather data information, and search capabilities, featuring a dark/light theme toggle.
+Country Insights is a web application that allows users to explore detailed information about countries around the world. It fetches real-time data using REST APIs to display country-specific details such as population, region, capital, and more. With a clean, responsive interface and intuitive navigation, users can easily search and filter countries to gain quick insights.
 
 ## 🚀 Demo
 
