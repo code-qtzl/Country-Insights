@@ -56,25 +56,27 @@ export default function SearchBar({
 					Discover information about countries around the globe
 				</p>
 
-				<div className='search-input-wrapper'>
-					<input
-						type='text'
-						className='search-input'
-						placeholder='Search for a country...'
-						value={inputValue}
-						onChange={handleInputChange}
-					/>
-					<div className='search-icon'>
-						{inputValue ? (
-							<XMarkIcon
-								className='h-5 w-5 cursor-pointer hover:text-gray-600 dark:hover:text-gray-300'
-								onClick={clearSearch}
-							/>
-						) : (
-							<MagnifyingGlassIcon className='h-5 w-5' />
-						)}
+				<search role='search' aria-label='Search countries'>
+					<div className='search-input-wrapper'>
+						<input
+							type='text'
+							className='search-input'
+							placeholder='Search for a country...'
+							value={inputValue}
+							onChange={handleInputChange}
+						/>
+						<div className='search-icon'>
+							{inputValue ? (
+								<XMarkIcon
+									className='h-5 w-5 cursor-pointer hover:text-gray-600 dark:hover:text-gray-300'
+									onClick={clearSearch}
+								/>
+							) : (
+								<MagnifyingGlassIcon className='h-5 w-5' />
+							)}
+						</div>
 					</div>
-				</div>
+				</search>
 
 				<div className='flex flex-wrap items-center justify-center gap-2'>
 					<div className='relative'>
