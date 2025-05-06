@@ -49,10 +49,10 @@ npm run dev
 
 ## Main Features:
 
--   Country-related functionality
+-   Country-related information
 -   Weather information integration
 -   Search functionality
--   Theme switching capability
+-   Theme switch light-mode/dark-mode
 
 ## Architecture:
 
