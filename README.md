@@ -1,5 +1,9 @@
 # Country-Insights
 
+<div align="left">
+  <img src="screenshots/explore.png" alt="terminal hot ones cli" width="300"/>
+</div>
+
 ![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/Tailwind-%2306B6D4?style=flat&logo=Tailwind-CSS&logoColor=white)
@@ -14,11 +18,8 @@ Experience Country-Insights here: [https://code-qtzl.github.io/Country-Insights/
 ## 📸 Screenshots
 
 <div align="center">
-  <img src="screenshots/dark-mode.png" alt="Dark Mode" width="600"/>
-  <p><em>Dark Mode - Country Search and Information Display</em></p>
-
-  <img src="screenshots/light-mode.png" alt="Light Mode" width="600"/>
-  <p><em>Light Mode - Weather Information and Details</em></p>
+  <img src="screenshots/home.png" alt="Dark Mode" width="600"/>
+  <p><em>Dark Mode - Filter by Region</em></p>
 </div>
 
 ## 🛠️ Installation
@@ -52,7 +53,7 @@ npm run dev
 -   Country-related information
 -   Weather information integration
 -   Search functionality
--   Theme switch light-mode/dark-mode
+-   Theme transition switch light-mode/dark-mode
 
 ## Architecture:
 
