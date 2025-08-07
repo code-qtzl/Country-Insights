@@ -22,6 +22,30 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 			: 'dark';
 	});
 
+	const updateTheme = (newTheme: Theme) => {
+		setTheme(newTheme);
+		localStorage.setItem('theme', newTheme);
+		document.documentElement.classList.toggle('dark', newTheme === 'dark');
+		document.documentElement.classList.toggle(
+			'light',
+			newTheme === 'light',
+		);
+	};
+
+	const toggleTheme = () => {
+		const newTheme = theme === 'light' ? 'dark' : 'light';
+
+		// Check if View Transitions API is supported
+		if (document.startViewTransition) {
+			document.startViewTransition(() => {
+				updateTheme(newTheme);
+			});
+		} else {
+			// Fallback for browsers that don't support View Transitions
+			updateTheme(newTheme);
+		}
+	};
+
 	useEffect(() => {
 		localStorage.setItem('theme', theme);
 		document.documentElement.classList.toggle('dark', theme === 'dark');
@@ -32,8 +56,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 		<ThemeContext.Provider
 			value={{
 				theme,
-				toggleTheme: () =>
-					setTheme((t) => (t === 'light' ? 'dark' : 'light')),
+				toggleTheme,
 			}}
 		>
 			{children}

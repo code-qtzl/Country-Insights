@@ -2,9 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
+/* View Transition Animations for Theme Switching */
+::view-transition-old(root) {
+	animation-delay: 500ms;
+}
+
+::view-transition-new(root) {
+	animation: circle-in 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes circle-in {
+	from {
+		clip-path: circle(0% at 90% 5%);
+	}
+	to {
+		clip-path: circle(150% at 50% 50%);
+	}
+}
+
 @layer base {
 	body {
 		@apply antialiased;
+	}
+
+	/* Smooth transitions for all theme changes */
+	*,
+	*::before,
+	*::after {
+		transition-property: background-color, border-color, color, fill, stroke,
+			opacity, box-shadow, transform, filter, backdrop-filter;
+		transition-duration: 200ms;
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	/* Disable transitions during view transition */
+	html:has(::view-transition-old(root)),
+	html:has(::view-transition-new(root)) {
+		* {
+			transition: none !important;
+		}
 	}
 }
 
