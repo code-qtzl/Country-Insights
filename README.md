@@ -50,8 +50,8 @@ npm run dev
 
 ## Main Features:
 
--   Country-related information
--   Weather information integration
+-   Country-related information ([REST Countries](https://restcountries.com/))
+-   Weather information integration ([Weather API](https://openweathermap.org/api))
 -   Search functionality
 -   Theme transition switch light-mode/dark-mode
 
