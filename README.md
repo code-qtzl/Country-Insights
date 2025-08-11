@@ -1,7 +1,7 @@
 # Country-Insights
 
 <div align="left">
-  <img src="screenshots/explore.png" alt="terminal hot ones cli" width="300"/>
+  <img src="screenshots/explore.png" alt="country-insights map" width="300"/>
 </div>
 
 ![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=black)
