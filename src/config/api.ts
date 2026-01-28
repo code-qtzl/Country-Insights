@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 export const API_CONFIG = {
 	COUNTRIES: {
 		REST_COUNTRIES_URL: 'https://restcountries.com/v3.1',
