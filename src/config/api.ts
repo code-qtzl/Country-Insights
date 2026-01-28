@@ -1,9 +1,9 @@
 export const API_CONFIG = {
 	COUNTRIES: {
-		REST_COUNTRIES_URL: 'https://studies.cs.helsinki.fi/restcountries',
-		BASE_URL: 'https://studies.cs.helsinki.fi/restcountries',
+		REST_COUNTRIES_URL: 'https://restcountries.com/v3.1',
+		BASE_URL: 'https://restcountries.com/v3.1',
 		ENDPOINTS: {
-			ALL: '/api/all',
+			ALL: '/all?fields=name,tld,cca2,ccn3,cca3,cioc,independent,status,unMember,currencies,idd,capital,altSpellings,region,subregion,languages,translations,latlng,landlocked,borders,area,demonyms,flag,maps,population,gini,fifa,car,timezones,continents,flags,coatOfArms,startOfWeek,capitalInfo,postalCode',
 		},
 	},
 	WEATHER: {

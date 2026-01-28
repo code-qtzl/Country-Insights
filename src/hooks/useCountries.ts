@@ -14,7 +14,7 @@ export const useCountries = () => {
 		try {
 			setLoading(true);
 			const response = await fetch(
-				`${API_CONFIG.COUNTRIES.BASE_URL}/api/all`,
+				`${API_CONFIG.COUNTRIES.BASE_URL}${API_CONFIG.COUNTRIES.ENDPOINTS.ALL}`,
 			);
 
 			if (!response.ok) {
