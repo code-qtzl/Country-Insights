@@ -70,6 +70,10 @@ export const useCountries = () => {
 				);
 			}
 
+			results.sort((leftCountry, rightCountry) => {
+				return rightCountry.population - leftCountry.population;
+			});
+
 			setFilteredCountries(results);
 		}
 	}, [countries, searchTerm, regionFilter]);
