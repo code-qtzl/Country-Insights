@@ -11,9 +11,7 @@
 
 Country Insights is a web application that allows users to explore detailed information about countries around the world. It fetches real-time data using REST APIs to display country-specific details such as population, region, capital, and more. With a clean, responsive interface and intuitive navigation, users can easily search and filter countries to gain quick insights.
 
-## 🚀 Demo
-
-Experience Country-Insights here: [https://code-qtzl.github.io/Country-Insights/](https://code-qtzl.github.io/Country-Insights/)
+## 🚀 Demo Link -> [https://code-qtzl.github.io/Country-Insights/](https://code-qtzl.github.io/Country-Insights/)
 
 ## 📸 Screenshots
 
@@ -27,7 +25,7 @@ Experience Country-Insights here: [https://code-qtzl.github.io/Country-Insights/
 1. Clone the repository:
 
 ```
-git clone https://code-qtzl.github.io/Country-Insights
+git clone https://github.com/code-qtzl/Country-Insights.git
 ```
 
 2.  Navigate to project directory:
@@ -48,18 +46,81 @@ npm install
 npm run dev
 ```
 
+## 🐳 Docker Setup
+
+This project includes separate Docker configurations for development and production.
+
+### Prerequisites
+
+- Docker
+- Docker Compose
+
+### Environment Variables
+
+Create a local environment file before starting the containers:
+
+```
+cp .env.example .env
+```
+
+Update the values in `.env` as needed:
+
+- `VITE_WEATHER_API_KEY`: OpenWeather API key
+- `VITE_MAPS_API_KEY`: Google Maps API key
+- `VITE_BASE_URL_COUNTRIES`: Base URL for the countries API
+
+### Development Container
+
+Starts the Vite development server with source files mounted into the container.
+
+```
+docker compose -f docker-compose.dev.yml up --build
+```
+
+Application URL:
+
+```
+http://localhost:5173
+```
+
+Stop the development container:
+
+```
+docker compose -f docker-compose.dev.yml down
+```
+
+### Production Container
+
+Builds the app and serves the static output with Nginx.
+
+```
+docker compose up --build
+```
+
+Application URL:
+
+```
+http://localhost:8080
+```
+
+Stop the production container:
+
+```
+docker compose down
+```
+
 ## Main Features:
 
--   Country-related information ([REST Countries](https://restcountries.com/))
--   Weather information integration ([Weather API](https://openweathermap.org/api))
--   Search functionality
--   Theme transition switch light-mode/dark-mode
+- Country-related information ([REST Countries](https://restcountries.com/))
+- Weather information integration ([Weather API](https://openweathermap.org/api))
+- Search functionality
+- Theme transition switch light-mode/dark-mode
 
 ## Architecture:
 
--   Organized by feature with separate directories for components, hooks, context, and types
--   API configuration isolated in config/api.ts
--   Custom hooks for data fetching and functionality
+- Organized by feature with separate directories for components, hooks, context, and types
+- API configuration isolated in config/api.ts
+- Custom hooks for data fetching and functionality
 
 ## ✉️ Contact
 
