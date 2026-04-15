@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - VITE_WEATHER_API_KEY=${VITE_WEATHER_API_KEY}
+        - VITE_MAPS_API_KEY=${VITE_MAPS_API_KEY}
+        - VITE_BASE_URL_COUNTRIES=${VITE_BASE_URL_COUNTRIES}
+    ports:
+      - "8080:80"
+    container_name: country-insights
+    restart: unless-stopped
