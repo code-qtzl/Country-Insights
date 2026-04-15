@@ -1,8 +1,7 @@
-import { useState, useMemo, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 import { API_CONFIG } from './config/api';
 import { useCountries } from './hooks/useCountries';
-import { useDebounce } from './hooks/useDebounce';
 import { Country } from './types';
 
 import Header from './components/Header';
@@ -17,23 +16,14 @@ export default function App() {
 	const headingRef = useRef<HTMLHeadingElement>(null);
 
 	const {
-		countries,
 		filteredCountries,
 		loading,
 		error,
-		searchTerm,
 		setSearchTerm,
-		setRegionFilter,
+		sortOption,
+		sortDirection,
+		handleSortChange,
 	} = useCountries();
-
-	const debouncedSearchTerm = useDebounce(searchTerm, 300);
-
-	const regions = useMemo(() => {
-		const uniqueRegions = new Set(
-			countries.map((country) => country.region),
-		);
-		return Array.from(uniqueRegions).sort();
-	}, [countries]);
 
 	const handleCountrySelect = (country: Country) => {
 		setSelectedCountry(country);
@@ -53,7 +43,10 @@ export default function App() {
 
 				<main className={`w-full mx-auto bg-gray-100 dark:bg-gray-900`}>
 					{error && (
-						<div role='alert' className='bg-red-50 dark:bg-red-900/20 p-4 rounded-lg mb-6'>
+						<div
+							role='alert'
+							className='bg-red-50 dark:bg-red-900/20 p-4 rounded-lg mb-6'
+						>
 							<p className='text-red-600 dark:text-red-400'>
 								{error}
 							</p>
@@ -68,8 +61,9 @@ export default function App() {
 						<>
 							<SearchBar
 								onSearch={setSearchTerm}
-								onRegionFilter={setRegionFilter}
-								regions={regions}
+								sortOption={sortOption}
+								onSortChange={handleSortChange}
+								sortDirection={sortDirection}
 							/>
 							<div className='container relative mx-auto -mt-40 px-4 py-8'>
 								<h2
