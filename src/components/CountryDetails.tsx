@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { API_CONFIG } from '../config/api';
 import {
 	ArrowLeftIcon,
@@ -27,6 +27,11 @@ export default function CountryDetails({
 		fetchWeatherByCapital,
 	} = useWeather();
 	const [showMap, setShowMap] = useState(false);
+	const backButtonRef = useRef<HTMLButtonElement>(null);
+
+	useEffect(() => {
+		backButtonRef.current?.focus();
+	}, []);
 
 	useEffect(() => {
 		if (country.capital && country.capital.length > 0) {
@@ -49,13 +54,15 @@ export default function CountryDetails({
 	const renderWeatherSection = () => {
 		if (weatherLoading) {
 			return (
-				<div className='animate-pulse bg-gray-200 dark:bg-gray-700 h-40 rounded-lg'></div>
+				<div role='status' aria-label='Loading weather data' className='animate-pulse bg-gray-200 dark:bg-gray-700 h-40 rounded-lg'>
+					<span className='sr-only'>Loading weather data…</span>
+				</div>
 			);
 		}
 
 		if (weatherError) {
 			return (
-				<div className='bg-red-50 dark:bg-red-900/20 p-4 rounded-lg'>
+				<div role='alert' className='bg-red-50 dark:bg-red-900/20 p-4 rounded-lg'>
 					<p className='text-red-600 dark:text-red-400'>
 						Failed to load weather data
 					</p>
@@ -173,10 +180,12 @@ export default function CountryDetails({
 					<div className='container relative z-20 mx-auto py-16'>
 						<div className='flex flex-wrap items-center justify-between gap-4 mb-6'>
 							<button
+								ref={backButtonRef}
 								onClick={onBack}
 								className='flex items-center gap-2 px-4 py-2 text-white bg-white/10 dark:bg-gray-800/9 rounded-lg shadow-sm hover:bg-gray-50/20 dark:hover:bg-gray-700/20 transition-colors'
+								aria-label='Back to country list'
 							>
-								<ArrowLeftIcon className='h-5 w-5' />
+								<ArrowLeftIcon className='h-5 w-5' aria-hidden='true' />
 								<span>Back</span>
 							</button>
 						</div>
