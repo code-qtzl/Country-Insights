@@ -10,10 +10,21 @@ export default function CountryCard({ country, onClick }: CountryCardProps) {
 		return new Intl.NumberFormat().format(population);
 	};
 
+	const handleKeyDown = (e: React.KeyboardEvent) => {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault();
+			onClick();
+		}
+	};
+
 	return (
-		<div
-			className='bg-neutral-50 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer'
+		<article
+			className='bg-neutral-50 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:focus-visible:outline-orange-400'
 			onClick={onClick}
+			onKeyDown={handleKeyDown}
+			tabIndex={0}
+			role='button'
+			aria-label={`View details for ${country.name.common}`}
 		>
 			<div className='relative h-40 overflow-hidden shadow-md'>
 				<img
@@ -47,6 +58,6 @@ export default function CountryCard({ country, onClick }: CountryCardProps) {
 					</p>
 				</div>
 			</div>
-		</div>
+		</article>
 	);
 }

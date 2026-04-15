@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 import { API_CONFIG } from './config/api';
 import { useCountries } from './hooks/useCountries';
@@ -14,6 +14,7 @@ export default function App() {
 	const [selectedCountry, setSelectedCountry] = useState<Country | null>(
 		null,
 	);
+	const headingRef = useRef<HTMLHeadingElement>(null);
 
 	const {
 		countries,
@@ -40,6 +41,9 @@ export default function App() {
 
 	const handleBackToList = () => {
 		setSelectedCountry(null);
+		requestAnimationFrame(() => {
+			headingRef.current?.focus();
+		});
 	};
 
 	return (
@@ -49,7 +53,7 @@ export default function App() {
 
 				<main className={`w-full mx-auto bg-gray-100 dark:bg-gray-900`}>
 					{error && (
-						<div className='bg-red-50 dark:bg-red-900/20 p-4 rounded-lg mb-6'>
+						<div role='alert' className='bg-red-50 dark:bg-red-900/20 p-4 rounded-lg mb-6'>
 							<p className='text-red-600 dark:text-red-400'>
 								{error}
 							</p>
@@ -68,7 +72,11 @@ export default function App() {
 								regions={regions}
 							/>
 							<div className='container relative mx-auto -mt-40 px-4 py-8'>
-								<h2 className='text-4xl font-bold text-center text-gray-700 dark:text-white mb-16'>
+								<h2
+									ref={headingRef}
+									tabIndex={-1}
+									className='text-4xl font-bold text-center text-gray-700 dark:text-white mb-16 outline-none'
+								>
 									Explore Countries
 								</h2>
 								<CountryGrid
